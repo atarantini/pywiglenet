@@ -70,7 +70,7 @@ class Wigle:
                 allow_redirects=False
             )
             if response.status_code == 302:
-                self.auth_cookie = response.headers['set-cookie'].split(";")[0]
+                self.auth_cookie = response.headers['set-cookie'].split(";")[3].strip()
                 return self.auth_cookie
         except Exception, e:
             print e
